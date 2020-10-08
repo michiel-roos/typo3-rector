@@ -6,6 +6,7 @@ use Rector\Renaming\Rector\MethodCall\RenameMethodRector;
 use Rector\Renaming\Rector\StaticCall\RenameStaticMethodRector;
 use Rector\Renaming\ValueObject\MethodCallRename;
 use Rector\Renaming\ValueObject\RenameStaticMethod;
+use Ssch\TYPO3Rector\Rector\v8\v0\RemoveWakeupCallFromEntityRector;
 use function Rector\SymfonyPhpConfig\inline_value_objects;
 use Ssch\TYPO3Rector\Rector\Core\Html\RteHtmlParserRector;
 use Ssch\TYPO3Rector\Rector\Core\TimeTracker\TimeTrackerGlobalsToSingletonRector;
@@ -31,6 +32,8 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $services->set(RemovePropertyUserAuthenticationRector::class);
 
     $services->set(TimeTrackerGlobalsToSingletonRector::class);
+
+    $services->set(RemoveWakeupCallFromEntityRector::class);
 
     $services->set(RteHtmlParserRector::class);
 
