@@ -1,0 +1,16 @@
+#!/usr/bin/env php
+<?php
+
+    foreach ([__DIR__ . '/../../../autoload.php', __DIR__ . '/../../../../autoload.php', __DIR__ . '/../vendor/autoload.php'] as $file) {
+    if (file_exists($file)) {
+        require_once $file;
+        break;
+    }
+}
+
+use Ssch\TYPO3Rector\Rector\Command\RectorCommand;
+use Ssch\TYPO3Rector\Rector\Console\Application;
+
+$app = new Application('TYPO3Rector', '0.0.1');
+$app->add(new RectorCommand);
+$app->run();

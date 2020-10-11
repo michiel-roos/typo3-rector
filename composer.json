@@ -8,19 +8,22 @@
     ],
     "require": {
         "php": "^7.2",
-        "rector/rector": "0.8.14",
-        "phpstan/phpstan": "^0.12.42",
+        "phpstan/phpstan": "^0.12.48",
+        "rector/rector-prefixed": "^0.8.18",
+        "symfony/console": "^5.1",
+        "symplify/phpstan-extensions": "^8.3",
         "typo3fluid/fluid": "^2.6"
     },
     "require-dev": {
         "migrify/config-transformer": "^0.3.36",
         "phpunit/phpunit": "^8.0|^9.0",
-        "symplify/easy-coding-standard": "^8.2.27",
-        "symplify/phpstan-extensions": "^8.2"
+        "symplify/easy-coding-standard": "^8.2.27"
     },
     "autoload": {
         "psr-4": {
-            "Ssch\\TYPO3Rector\\": "src"
+            "Ssch\\TYPO3Rector\\": "src",
+            "Ssch\\TYPO3Rector\\PHPStan\\": "utils/phpstan/src",
+            "Ssch\\TYPO3Rector\\PHPStan\\Tests\\": "utils/phpstan/tests"
         }
     },
     "autoload-dev": {
@@ -32,7 +35,9 @@
         "exclude-from-classmap": ["**.php.inc"]
     },
     "config": {
+        "bin-dir": "bin",
         "optimize-autoloader": true,
+        "preferred-install": "dist",
         "update-with-dependencies": true,
         "sort-packages": true
     },
